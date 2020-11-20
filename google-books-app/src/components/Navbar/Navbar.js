@@ -3,19 +3,19 @@ import React from 'react';
 function Navbar() {
   return (
     <div>
-      <ul class="nav">
-        <li class="nav-item">
-          <a class="nav-link active" href="#">
+      <ul className="nav">
+        <li className="nav-item">
+          <a className="nav-link active" href="/">
             Google Books
           </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">
+        <li className="nav-item">
+          <a className="nav-link" href="/search">
             Search
           </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">
+        <li className="nav-item">
+          <a className="nav-link" href="/saved">
             Save
           </a>
         </li>
