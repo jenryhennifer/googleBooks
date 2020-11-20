@@ -3,8 +3,9 @@ import './style.css'
 
 function SearchBar() {
   return (
-    <div className='container'>
-    <div className="input-group mb-3">
+    <div className='container' id='search'>
+      <h4 className='float-left mb-4 mt-2'>Book Search</h4>
+    <div className="input-group mb-3 mt-4">
       <input
         type="text"
         className="form-control"
