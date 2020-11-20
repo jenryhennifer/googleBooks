@@ -5,20 +5,20 @@ import BookCard from '../BookCard/BookCard';
 
 function BookList(props) {
 
-  const [books, setBooks] = useState([]);
+//   const [books, setBooks] = useState([]);
 
-  useEffect(() => {
-    getBooks();
-  }, []);
+//   useEffect(() => {
+//     getBooks();
+//   }, []);
 
-  async function getBooks() {
-    const response = await fetch(
-      'https://www.googleapis.com/books/v1/volumes?q=hunger'
-    );
-    console.log(response)
-    const books = await response.json();
-    setBooks(books);
-  }
+//   async function getBooks() {
+//     const response = await fetch(
+//       'https://www.googleapis.com/books/v1/volumes?q=hunger'
+//     );
+//     console.log(response)
+//     const books = await response.json();
+//     setBooks(books);
+//   }
 
 
   return (
