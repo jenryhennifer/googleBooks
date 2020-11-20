@@ -14,22 +14,21 @@ class Search extends Component {
     };
   }
 
-  bookInfo = info => {
-    console.log(info.data.items)
-    const result = info.data.items
-    
-    result.map(stuff => {
-        this.setState({ books: {
-            id: stuff.id,
-            title: stuff.volumeInfo.title,
-            author: stuff.volumeInfo.authors,
-            description: stuff.volumeInfo.description,
-            image: stuff.volumeInfo.imageLinks.thumbnail,
-            link: stuff.volumeInfo.previewLink,
-          }});
-    })
-    console.log(this.state.books)
+  bookInfo = (info) => {
+    console.log(info.data.items);
+    const  result  = info.data.items;
 
+    const book = result.map((stuff) => ({
+          id: stuff.id,
+          title: stuff.volumeInfo.title,
+          author: stuff.volumeInfo.authors,
+          description: stuff.volumeInfo.description,
+          image: stuff.volumeInfo.imageLinks.thumbnail,
+          link: stuff.volumeInfo.previewLink,
+    }));
+    this.setState({ books: book });
+
+    console.log(this.state.books);
   };
 
   componentDidMount() {
@@ -39,20 +38,17 @@ class Search extends Component {
 
   bookData = (query) => {
     API.getBooks(query)
-      .then((res) =>
-        this.bookInfo(res)
-      )
+      .then((res) => this.bookInfo(res))
       .then(console.log(this.state.books))
       .catch((err) => console.log(err));
-
   };
-
 
   render() {
     return (
       <div>
         <SearchBar />
         <BookList />
+        
       </div>
     );
   }
