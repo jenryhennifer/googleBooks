@@ -1,10 +1,12 @@
 import React, { Component } from "react";
-
+import SavedList from '../components/SavedList/SavedList'
 
 class Saved extends Component {
     render(){
         return(
-            <div></div>
+            <div>
+                <SavedList />
+            </div>
         )
     }
 }
