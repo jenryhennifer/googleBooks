@@ -1,8 +1,9 @@
 import React from 'react';
 import './style.css'
 
-function SearchBar({search, changeSearch}) {
+function SearchBar({search, changeSearch, fetchBooks}) {
   console.log(search)
+
 
   return (
     <div className='container' id='search'>
@@ -21,6 +22,7 @@ function SearchBar({search, changeSearch}) {
           className="btn btn-outline-secondary"
           type="button"
           id="button-addon2"
+          onClick={fetchBooks}
         >
           Search
         </button>

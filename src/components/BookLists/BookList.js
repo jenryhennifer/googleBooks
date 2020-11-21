@@ -27,7 +27,7 @@ class BookList extends Component {
       title: stuff.volumeInfo.title,
       author: stuff.volumeInfo.authors,
       description: stuff.volumeInfo.description,
-      image: stuff.volumeInfo.imageLinks.smallThumbnail,
+      image: stuff.volumeInfo.imageLinks?.smallThumbnail,
       link: stuff.volumeInfo.previewLink,
     }));
     this.setState({ books: book });
@@ -35,15 +35,12 @@ class BookList extends Component {
     console.log(this.state.books);
   };
 
-  // componentDidMount() {
-  //   console.log('MOUNTED!');
-  //   this.bookData(this.state.search);
-  // }
+  bookData = () => {
+    const formattedString = this.state.search.replace(' ', '+')
 
-  bookData = (query) => {
-    API.getBooks(query)
+    API.getBooks(formattedString)
       .then((res) => this.bookInfo(res))
-      .then(console.log(this.state.books))
+      .then(console.log(this.state.search))
       .catch((err) => console.log(err));
   };
 
