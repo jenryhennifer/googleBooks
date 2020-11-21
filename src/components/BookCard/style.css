@@ -1,0 +1,9 @@
+.card-text{
+    height: 100px;
+    overflow: auto;
+}
+.wrapper{
+    display: flex;
+    max-width: 500px;
+    min-width: 499px;
+}

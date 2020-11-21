@@ -22,7 +22,7 @@ class BookList extends Component {
       title: stuff.volumeInfo.title,
       author: stuff.volumeInfo.authors,
       description: stuff.volumeInfo.description,
-      image: stuff.volumeInfo.imageLinks.thumbnail,
+      image: stuff.volumeInfo.imageLinks.smallThumbnail,
       link: stuff.volumeInfo.previewLink,
     }));
     this.setState({ books: book });
