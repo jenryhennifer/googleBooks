@@ -1,7 +1,9 @@
 import React from 'react';
 import './style.css'
 
-function SearchBar() {
+function SearchBar({search, changeSearch}) {
+  console.log(search)
+
   return (
     <div className='container' id='search'>
       <h4 className='float-left mb-4 mt-2'>Book Search</h4>
@@ -12,6 +14,7 @@ function SearchBar() {
         placeholder="Search"
         aria-label="Search"
         aria-describedby="button-addon2"
+        onChange={changeSearch}
       />
       <div className="input-group-append">
         <button
