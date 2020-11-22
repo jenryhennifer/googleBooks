@@ -14,7 +14,7 @@
 
 ## Description
 
-The purpose of this small project was to test my full stack skills! This project was started from scratch to create an application that uses the [Google Books](https://developers.google.com/books) API to obtain data on books. 
+The purpose of this small project was to test my full stack skills! This project was started from scratch to create an application that uses the [Google Books](https://developers.google.com/books) API to obtain data on books. This project began creating a react app and installing dependencies. Components were created and imported into files to produce pages and then imported into the App.js to render each screen using React's switch routers. 
 
 ## License
 
