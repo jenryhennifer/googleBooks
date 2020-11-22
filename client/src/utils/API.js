@@ -8,7 +8,7 @@ export default {
   createSave: function (data) {
     console.log(data);
     return axios
-      .post('/api/books', data)
+      .post('http://localhost:3001/api/books', data)
       .then(function (response) {
         console.log(response);
       })
@@ -18,7 +18,7 @@ export default {
   },
   getSaved: function () {
     return axios
-      .get('/api/books')
+      .get('http://localhost:3001/api/books')
       .then(function (response) {
         console.log(response);
         return response.data;
@@ -28,6 +28,6 @@ export default {
       });
   },
   deleteBook: function (id) {
-    return axios.delete('/api/books/' + id);
+    return axios.delete('http://localhost:3001/api/books/' + id);
   },
 };

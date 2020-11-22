@@ -29,16 +29,14 @@ class SavedList extends Component {
     this.fetchData();
   }
 
-  fetchData = () => {
-    API.getSaved()
-      .then((res) => this.savedInfo(res))
-      .then(console.log(this.state.saved));
+  fetchData = async () => {
+    const results = await API.getSaved();
+    this.savedInfo(results);
   }
 
   handleDelete = (id) => {
-    API.deleteBook(id)
-    .then(() => this.fetchData())
-    console.log(id)
+    API.deleteBook(id);
+    window.location.reload();
   };
 
   render() {
