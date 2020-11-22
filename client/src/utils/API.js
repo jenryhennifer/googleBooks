@@ -16,4 +16,16 @@ export default {
         console.log(error);
       });
   },
+  getSaved: function () {
+    return axios
+    .get('/api/books')
+    .then(function (response) {
+      console.log(response);
+      return response.data
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  }
+
 };
