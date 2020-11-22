@@ -1,9 +1,9 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const bookSchema = new Schema({
   id: {
-    type: Number,
+    type: String,
   },
   title: {
     type: String,
@@ -27,7 +27,7 @@ const bookSchema = new Schema({
   },
 });
 
-const Book = mongosoe.mode;
-length('Book', bookSchema);
+const Book = mongoose.model("Book", bookSchema);
+
 
 module.exports = Book;

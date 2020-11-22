@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useState } from 'react';
+import React, { Component } from 'react';
 import './style.css';
 import API from '../../utils/API';
 
@@ -15,7 +15,7 @@ class BookList extends Component {
   }
 
   changeSearch = (event) => {
-    this.setState({search: event.target.value})
+    this.setState({ search: event.target.value });
   };
 
   bookInfo = (info) => {
@@ -25,18 +25,16 @@ class BookList extends Component {
     const book = result.map((stuff) => ({
       id: stuff.id,
       title: stuff.volumeInfo.title,
-      author: stuff.volumeInfo.authors,
+      author: stuff.volumeInfo.authors && stuff.volumeInfo.authors[0],
       description: stuff.volumeInfo.description,
-      image: stuff.volumeInfo.imageLinks?.smallThumbnail,
+      image: stuff.volumeInfo.imageLinks && stuff.volumeInfo.imageLinks.smallThumbnail,
       link: stuff.volumeInfo.previewLink,
     }));
     this.setState({ books: book });
-
-    console.log(this.state.books);
   };
 
   bookData = () => {
-    const formattedString = this.state.search.replace(' ', '+')
+    const formattedString = this.state.search.replace(' ', '+');
 
     API.getBooks(formattedString)
       .then((res) => this.bookInfo(res))
