@@ -7,3 +7,8 @@
     max-width: 500px;
     min-width: 499px;
 }
+
+/* only applies to last div of child of wrapper class */
+.wrapper div:last-child {
+    width: 100%;
+}

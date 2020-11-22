@@ -51,7 +51,7 @@ class BookList extends Component {
           fetchBooks={this.bookData}
         />
         <div className="container mt-3">
-          <h4 className="float-left mb-4 mt-2">Results</h4>
+          <h4 className="mb-4 mt-2">Results</h4>
           <div className="container">
             {this.state.books.map((book) => (
               <BookCard

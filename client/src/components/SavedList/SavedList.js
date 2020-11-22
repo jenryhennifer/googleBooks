@@ -32,7 +32,7 @@ class SavedList extends Component {
   fetchData = async () => {
     const results = await API.getSaved();
     this.savedInfo(results);
-  }
+  };
 
   handleDelete = (id) => {
     API.deleteBook(id);
@@ -43,18 +43,20 @@ class SavedList extends Component {
     return (
       <div>
         <h5>Saved Books</h5>
-        {this.state.saved.map((book) => (
-          <SavedCard
-            id={book.id}
-            key={book.id}
-            title={book.title}
-            author={book.author}
-            description={book.description}
-            image={book.image}
-            link={book.link}
-            handleDelete={this.handleDelete}
-          />
-        ))}
+        <div className="container">
+          {this.state.saved.map((book) => (
+            <SavedCard
+              id={book.id}
+              key={book.id}
+              title={book.title}
+              author={book.author}
+              description={book.description}
+              image={book.image}
+              link={book.link}
+              handleDelete={this.handleDelete}
+            />
+          ))}
+        </div>
       </div>
     );
   }
