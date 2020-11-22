@@ -2,6 +2,8 @@
 
 ## Deployment
 
+[Deployment](https://react-google-books-app-123.herokuapp.com/)
+
 ## Tech Used
 
 * Javascript
@@ -15,6 +17,36 @@
 ## Description
 
 The purpose of this small project was to test my full stack skills! This project was started from scratch to create an application that uses the [Google Books](https://developers.google.com/books) API to obtain data on books. This project began creating a react app and installing dependencies. Components were created and imported into files to produce pages and then imported into the App.js to render each screen using React's switch routers. 
+
+```
+    <Router>
+      <div className="App">
+        <Navbar />
+        <Jumbotron />
+        <Switch>
+          <Route exact path="/" component={Search} />
+          <Route exact path="/search" component={Search} />
+          <Route exact path="/saved" component={Saved} />
+        </Switch>
+      </div>
+    </Router>
+```
+
+Axios was used to retrieve data:
+```
+  createSave: function (data) {
+    console.log(data);
+    return axios
+      .post('/api/books', data)
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  },
+```
+
 
 ## License
 
