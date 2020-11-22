@@ -3,7 +3,6 @@ import SavedCard from '../SavedCard/SavedCard';
 import './style.css';
 import API from '../../utils/API';
 
-
 class SavedList extends Component {
   constructor(props) {
     super(props);
@@ -11,9 +10,9 @@ class SavedList extends Component {
       saved: [],
     };
   }
-  
-  savedInfo = (info) =>{
-    console.log(info)
+
+  savedInfo = (info) => {
+    console.log(info);
 
     const savedBook = info.map((stuff) => ({
       id: stuff.id,
@@ -23,29 +22,40 @@ class SavedList extends Component {
       image: stuff.image,
       link: stuff.previewLink,
     }));
-    this.setState({saved: savedBook})
-  }
+    this.setState({ saved: savedBook });
+  };
 
   componentDidMount() {
+    this.fetchData();
+  }
+
+  fetchData = () => {
     API.getSaved()
       .then((res) => this.savedInfo(res))
-      .then(console.log(this.state.saved))
+      .then(console.log(this.state.saved));
   }
+
+  handleDelete = (id) => {
+    API.deleteBook(id)
+    .then(() => this.fetchData())
+    console.log(id)
+  };
 
   render() {
     return (
       <div>
         <h5>Saved Books</h5>
-        {this.state.saved.map((book) =>(
-        <SavedCard                 
-        id={book.id}
-        key={book.id}
-        title={book.title}
-        author={book.author}
-        description={book.description}
-        image={book.image}
-        link={book.link}
-        />
+        {this.state.saved.map((book) => (
+          <SavedCard
+            id={book.id}
+            key={book.id}
+            title={book.title}
+            author={book.author}
+            description={book.description}
+            image={book.image}
+            link={book.link}
+            handleDelete={this.handleDelete}
+          />
         ))}
       </div>
     );

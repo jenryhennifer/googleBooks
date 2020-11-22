@@ -1,7 +1,9 @@
 import React from 'react';
 import './style.css';
 
+
 function SavedCard(props) {
+
   return (
     <div className="wrapper">
       <img alt={props.title} src={props.image} />
@@ -13,7 +15,7 @@ function SavedCard(props) {
           <a className="btn" href={props.link}>
             View
           </a>
-          <button className="btn">Delete</button>
+          <button className="btn" onClick={() => props.handleDelete(props.id)}>Delete</button>
         </div>
       </div>
     </div>

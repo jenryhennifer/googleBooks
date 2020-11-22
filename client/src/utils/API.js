@@ -18,14 +18,16 @@ export default {
   },
   getSaved: function () {
     return axios
-    .get('/api/books')
-    .then(function (response) {
-      console.log(response);
-      return response.data
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
-  }
-
+      .get('/api/books')
+      .then(function (response) {
+        console.log(response);
+        return response.data;
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  },
+  deleteBook: function (id) {
+    return axios.delete('/api/books/' + id);
+  },
 };
